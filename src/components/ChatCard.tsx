@@ -38,13 +38,13 @@ export default function ChatCard({ messages, isTyping, onSend }: Props) {
   }
 
   return (
-    <div className="flex w-full flex-col rounded-2xl border border-white bg-white p-5 shadow-[0_24px_50px_-20px_rgba(34,50,82,0.25)] sm:p-6">
+    <div className="flex w-full flex-col rounded-3xl border border-white bg-white p-5 shadow-[0_24px_50px_-20px_rgba(34,50,82,0.25)] sm:p-6">
       <div className="flex items-start gap-3">
         <span className="relative shrink-0">
           <img
             src={LARA_AVATAR_URL}
             alt="Lara"
-            className="h-11 w-11 rounded-full object-cover ring-2 ring-white"
+            className="h-11 w-11 rounded-full object-cover ring-2 ring-brand-gold/40"
           />
           <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-400" />
         </span>
@@ -66,9 +66,7 @@ export default function ChatCard({ messages, isTyping, onSend }: Props) {
         </div>
       </div>
 
-      <div className="mt-4 border-t border-gray-100" />
-
-      <div ref={scrollRef} className="mt-4 flex max-h-72 flex-col overflow-y-auto pr-1">
+      <div ref={scrollRef} className="mt-5 flex max-h-80 flex-col overflow-y-auto pr-1">
         {messages.length === 0 && !isTyping && (
           <p className="py-6 text-center text-sm text-gray-400">
             Say hello, or tap a quick action below to get started ✨
@@ -110,7 +108,7 @@ export default function ChatCard({ messages, isTyping, onSend }: Props) {
       </div>
 
       <form onSubmit={handleSubmit} className="mt-5">
-        <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-white py-1.5 pl-4 pr-1.5 transition focus-within:border-gray-300 focus-within:ring-4 focus-within:ring-gray-100">
+        <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-white py-1.5 pl-4 pr-1.5 transition focus-within:border-brand-gold/40 focus-within:ring-4 focus-within:ring-brand-gold/10">
           <button
             type="button"
             className="shrink-0 text-gray-400 hover:text-gray-600"
