@@ -49,7 +49,7 @@ export default function Sidebar({ threads, activeThreadId, onSelectThread, onNew
               Lara Gabriela
             </span>
             <span className="block truncate text-xs text-gray-400">
-              I can help you find homes...
+              Your Wispr &amp; Rumr specialist
             </span>
           </span>
           {isLaraOpen ? (

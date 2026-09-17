@@ -138,7 +138,7 @@ export default function ChatCard({ messages, isTyping, onSend }: Props) {
 
       <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-xs text-gray-400">
         <Lock size={12} />
-        Wispr listings may have limited details until requested.
+        Wispr and Rumr listings may have limited details until requested.
       </p>
     </div>
   )
