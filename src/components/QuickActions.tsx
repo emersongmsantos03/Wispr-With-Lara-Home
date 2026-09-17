@@ -27,7 +27,7 @@ type Props = {
 
 export default function QuickActions({ actions, onSelect }: Props) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="no-scrollbar -mb-1 flex gap-2 overflow-x-auto pb-1">
       {actions.map((action, i) => {
         const Icon = ICONS[action.icon]
         return (
@@ -44,12 +44,12 @@ export default function QuickActions({ actions, onSelect }: Props) {
               visible: { opacity: 1, y: 0, transition: { duration: 0.3, delay: i * 0.05 } },
               hover: { scale: 1.04, y: -1 },
             }}
-            className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3.5 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-gray-900"
+            className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-gray-200 bg-white px-3.5 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-gray-900"
           >
             <motion.span
               variants={{ rest: { rotate: 0, scale: 1 }, hover: { rotate: -10, scale: 1.1 } }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
-              className={`flex h-5 w-5 items-center justify-center rounded-full ${STYLES[action.icon]}`}
+              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${STYLES[action.icon]}`}
             >
               <Icon size={12} />
             </motion.span>

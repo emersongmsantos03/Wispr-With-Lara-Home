@@ -66,24 +66,30 @@ export default function ChatCard({ messages, isTyping, onSend }: Props) {
         </div>
       </div>
 
-      <div ref={scrollRef} className="mt-5 flex max-h-80 flex-col gap-3 overflow-y-auto pr-1">
+      <div className="mt-4 border-t border-gray-100" />
+
+      <div ref={scrollRef} className="mt-4 flex max-h-72 flex-col overflow-y-auto pr-1">
         {messages.length === 0 && !isTyping && (
           <p className="py-6 text-center text-sm text-gray-400">
             Say hello, or tap a quick action below to get started ✨
           </p>
         )}
         <AnimatePresence initial={false}>
-          {messages.map((message) => (
-            <motion.div
-              key={message.id}
-              layout
-              initial={{ opacity: 0, y: 12, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
-            >
-              <MessageBubble message={message} />
-            </motion.div>
-          ))}
+          {messages.map((message, i) => {
+            const showAvatar = i === 0 || messages[i - 1].sender !== message.sender
+            return (
+              <motion.div
+                key={message.id}
+                layout
+                initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+                className={i === 0 ? '' : showAvatar ? 'mt-3' : 'mt-1'}
+              >
+                <MessageBubble message={message} showAvatar={showAvatar} />
+              </motion.div>
+            )
+          })}
           {isTyping && (
             <motion.div
               key="typing"
@@ -91,6 +97,7 @@ export default function ChatCard({ messages, isTyping, onSend }: Props) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.2 }}
+              className={messages.length === 0 ? '' : 'mt-3'}
             >
               <TypingIndicator />
             </motion.div>
@@ -98,7 +105,7 @@ export default function ChatCard({ messages, isTyping, onSend }: Props) {
         </AnimatePresence>
       </div>
 
-      <div className="mt-5">
+      <div className="mt-5 -mx-5 px-5 sm:-mx-6 sm:px-6">
         <QuickActions actions={quickActions} onSelect={handleQuickAction} />
       </div>
 
@@ -123,7 +130,7 @@ export default function ChatCard({ messages, isTyping, onSend }: Props) {
             disabled={!draft.trim()}
             whileHover={draft.trim() ? { scale: 1.05 } : undefined}
             whileTap={draft.trim() ? { scale: 0.95 } : undefined}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-900 text-white shadow-sm transition-colors disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-navy text-white shadow-sm transition-colors disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
             aria-label="Send message"
           >
             <Send size={16} />
