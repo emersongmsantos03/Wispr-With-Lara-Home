@@ -18,7 +18,7 @@ export const initialMessages: ChatMessage[] = [
   {
     id: 'm1',
     sender: 'user',
-    text: "I'm looking for a 3-bedroom home near the coast, maybe off-market.",
+    text: "I'm looking for a 3-bedroom home near the coast — open to Wispr or Rumr options.",
   },
   {
     id: 'm2',
@@ -33,50 +33,60 @@ export const initialMessages: ChatMessage[] = [
   {
     id: 'm4',
     sender: 'lara',
-    text: "Perfect — I'll look for private and off-market options that fit.",
+    text: "Perfect — I'll check both Wispr listings and upcoming Rumrs that fit.",
   },
 ]
 
 export type QuickAction = {
   id: string
   label: string
-  icon: 'home' | 'users' | 'tag' | 'lock' | 'pin' | 'sparkles'
+  icon: 'home' | 'users' | 'lock' | 'flame' | 'pin' | 'sparkles'
 }
 
 export const quickActions: QuickAction[] = [
   { id: 'find-home', label: 'Find a home', icon: 'home' },
   { id: 'find-buyer', label: 'Find a buyer', icon: 'users' },
-  { id: 'sell-privately', label: 'Sell privately', icon: 'tag' },
-  { id: 'show-off-market', label: 'Show off-market', icon: 'lock' },
+  { id: 'sell-wispr', label: 'Sell via Wispr', icon: 'lock' },
+  { id: 'show-rumr', label: 'See Rumrs', icon: 'flame' },
   { id: 'explore-neighborhoods', label: 'Explore neighborhoods', icon: 'pin' },
   { id: 'surprise-me', label: 'Surprise me', icon: 'sparkles' },
 ]
 
 const QUICK_ACTION_REPLIES: Record<string, string> = {
   'find-home':
-    "Love it 🏡 Tell me your ideal area, budget, and must-haves, and I'll start pulling private + off-market matches for you.",
+    "Love it 🏡 Tell me your ideal area, budget, and must-haves, and I'll start pulling Wispr and Rumr matches for you.",
   'find-buyer':
     "On it! 🤝 Share the property address (or just the neighborhood) and your target price, and I'll start matching you with serious buyers.",
-  'sell-privately':
-    "Smart move 🔒 Selling privately means no public listing, no strangers walking through your home. Want me to put together a quiet, anonymous valuation first?",
-  'show-off-market':
-    "These are my favorite ones 😉 Off-market homes never hit Zillow — they're shared quietly with a short list of buyers. Want me to filter by city or price range?",
+  'sell-wispr':
+    "Smart move 🔒 Selling via Wispr means your home is shared advisor-to-advisor — never posted publicly, no strangers wandering through open houses. Want me to put together a quiet, anonymous valuation first?",
+  'show-rumr':
+    "These are my favorite ones 😉 Rumrs are pre-market homes — quiet whispers about listings before they officially go public. Want me to filter by city or price range?",
   'explore-neighborhoods':
     "Happy to be your guide 🗺️ Which area are you curious about — schools, walkability, or investment growth? I can break it down for you.",
   'surprise-me':
-    "Ooh, I like this energy ✨ Here's a hidden gem: a quiet 3-bed craftsman two blocks from the coast, priced under market because it's off-market. Want the details?",
+    "Ooh, I like this energy ✨ Here's a hidden gem: a quiet 3-bed craftsman two blocks from the coast, tucked away as a Rumr before it goes public. Want the details?",
 }
 
 const KEYWORD_REPLIES: { keywords: string[]; reply: string }[] = [
   {
+    keywords: ['what is wispr', "what's wispr", 'wispr mean'],
+    reply:
+      "Wispr listings are off-market homes shared quietly advisor-to-advisor — they never hit Zillow or public portals. Your agent gets early, private access. 🤫",
+  },
+  {
+    keywords: ['what is rumr', "what's rumr", 'rumr mean'],
+    reply:
+      "Rumrs are pre-market properties — homes that are about to be listed but aren't public yet. Think of it as hearing the rumor before everyone else does. 👀",
+  },
+  {
     keywords: ['budget', '$', 'price', 'afford'],
     reply:
-      "Good to know! 💰 That budget opens up some great private listings. Want me to prioritize move-in-ready homes, or are you open to a fixer-upper for a better price?",
+      "Good to know! 💰 That budget opens up some great Wispr listings. Want me to prioritize move-in-ready homes, or are you open to a fixer-upper for a better price?",
   },
   {
     keywords: ['coast', 'beach', 'ocean', 'waterfront'],
     reply:
-      "Coastal living, great taste 🌊 I have a few off-market homes near the water that never made it to the public listings. Want me to shortlist them?",
+      "Coastal living, great taste 🌊 I have a few Wispr homes near the water that never made it to public listings, plus a couple of Rumrs about to drop. Want me to shortlist them?",
   },
   {
     keywords: ['bedroom', 'bed', 'bd'],
@@ -86,7 +96,7 @@ const KEYWORD_REPLIES: { keywords: string[]; reply: string }[] = [
   {
     keywords: ['sell', 'selling'],
     reply:
-      "Selling can feel like a big step 🏠 I'll keep it private and pressure-free. Want a quick, no-obligation estimate of what buyers might offer?",
+      "Selling can feel like a big step 🏠 I'll keep it on Wispr — private and pressure-free. Want a quick, no-obligation estimate of what buyers might offer?",
   },
   {
     keywords: ['buy', 'buyer', 'buying', 'purchase'],
@@ -94,9 +104,9 @@ const KEYWORD_REPLIES: { keywords: string[]; reply: string }[] = [
       "Exciting! 🔑 Let's narrow it down — is this your primary home, a vacation spot, or an investment property?",
   },
   {
-    keywords: ['agent', 'realtor'],
+    keywords: ['agent', 'realtor', 'broker'],
     reply:
-      "I work alongside a small group of trusted local agents 🤝 Want me to connect you with one who specializes in your area?",
+      "I work alongside a small group of trusted local advisors 🤝 Once you're ready, I'll pass your search along so one of them can follow up directly.",
   },
   {
     keywords: ['neighborhood', 'area', 'orange county', 'san diego', 'school'],
@@ -110,7 +120,7 @@ const KEYWORD_REPLIES: { keywords: string[]; reply: string }[] = [
 ]
 
 const GENERIC_REPLIES: string[] = [
-  "Got it, noted! 📝 Tell me a bit more so I can fine-tune your matches.",
+  "Got it, noted! 📝 Tell me a bit more so I can fine-tune your Wispr and Rumr matches.",
   "Love that 😊 I'll factor that into your search right away.",
   "Great to know! Want me to show you a couple of options that fit so far?",
   "Noted! The more details you share, the sharper my matches get 🎯",
@@ -132,8 +142,8 @@ export function getLaraReply(userText: string, quickActionId?: string): string {
 
 export const typingStatuses: string[] = [
   'Lara is typing...',
-  'Searching off-market listings...',
-  'Checking fresh matches...',
+  'Searching Wispr listings...',
+  'Checking fresh Rumrs...',
 ]
 
 export type PropertyBadge = 'Wispr' | 'Rumr' | 'Matched for you'

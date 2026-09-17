@@ -60,8 +60,8 @@ export default function ChatCard({ messages, isTyping, onSend }: Props) {
             </motion.span>
           </h2>
           <p className="mt-0.5 text-sm text-gray-500">
-            Tell me what you're looking for, and I'll help you find homes, off-market
-            listings, or buyers.
+            Tell me what you're looking for, and I'll help you find homes, Wispr listings,
+            Rumrs, or buyers.
           </p>
         </div>
       </div>

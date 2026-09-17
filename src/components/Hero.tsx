@@ -29,8 +29,8 @@ export default function Hero({ children }: { children: ReactNode }) {
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="mt-2 max-w-md text-sm text-gray-600 sm:text-base"
           >
-            Chat with Lara to find homes, discover off-market opportunities, or find the
-            right buyer.
+            Chat with Lara to find homes, discover Wispr and Rumr opportunities, or find
+            the right buyer.
           </motion.p>
 
           <motion.div

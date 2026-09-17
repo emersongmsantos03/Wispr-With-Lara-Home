@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
-import { Home, Lock, MapPinned, Sparkles, Tag, Users } from 'lucide-react'
+import { Flame, Home, Lock, MapPinned, Sparkles, Users } from 'lucide-react'
 import type { QuickAction } from '../data/mockData'
 
 const ICONS = {
   home: Home,
   users: Users,
-  tag: Tag,
   lock: Lock,
+  flame: Flame,
   pin: MapPinned,
   sparkles: Sparkles,
 } as const
@@ -14,8 +14,8 @@ const ICONS = {
 const STYLES: Record<QuickAction['icon'], string> = {
   home: 'bg-sky-50 text-sky-500',
   users: 'bg-brand-purple/10 text-brand-purple',
-  tag: 'bg-amber-50 text-amber-500',
-  lock: 'bg-rose-50 text-rose-500',
+  lock: 'bg-brand-navy/10 text-brand-navy',
+  flame: 'bg-brand-gold/10 text-brand-gold',
   pin: 'bg-brand-green/10 text-brand-green',
   sparkles: 'bg-cyan-50 text-cyan-500',
 }
