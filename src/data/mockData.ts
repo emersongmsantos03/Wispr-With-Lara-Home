@@ -40,43 +40,46 @@ export const initialMessages: ChatMessage[] = [
 export type QuickAction = {
   id: string
   label: string
-  icon: 'home' | 'users' | 'lock' | 'flame' | 'pin' | 'sparkles'
+  icon: 'lock' | 'help' | 'users' | 'home' | 'flame' | 'pin' | 'sparkles'
 }
 
 export const quickActions: QuickAction[] = [
-  { id: 'find-home', label: 'Find a home', icon: 'home' },
+  { id: 'wispr-buyer', label: 'Wispr buyer', icon: 'lock' },
+  { id: 'rumr-buyer', label: 'Rumr buyer', icon: 'help' },
   { id: 'find-buyer', label: 'Find a buyer', icon: 'users' },
-  { id: 'sell-wispr', label: 'Sell via Wispr', icon: 'lock' },
+  { id: 'sell-wispr', label: 'Sell via Wispr', icon: 'home' },
   { id: 'show-rumr', label: 'See Rumrs', icon: 'flame' },
   { id: 'explore-neighborhoods', label: 'Explore neighborhoods', icon: 'pin' },
   { id: 'surprise-me', label: 'Surprise me', icon: 'sparkles' },
 ]
 
 const QUICK_ACTION_REPLIES: Record<string, string> = {
-  'find-home':
-    "Love it 🏡 Tell me your ideal area, budget, and must-haves, and I'll start pulling Wispr and Rumr matches for you.",
+  'wispr-buyer':
+    "Love that 🔑 As a Wispr buyer, you're actively searching right now — so I'll prioritize homes with a signed, active agreement in place, ready to move fast on. What's your budget and must-haves?",
+  'rumr-buyer':
+    "No pressure at all 👀 As a Rumr buyer, you're just exploring — nothing's signed, nothing's official, just possibilities. I'll quietly flag anything interesting before it becomes a real listing. What area has your eye?",
   'find-buyer':
-    "On it! 🤝 Share the property address (or just the neighborhood) and your target price, and I'll start matching you with serious buyers.",
+    "On it! 🤝 Are you hoping to reach Wispr buyers — people actively searching and ready now — or is it fine to also surface Rumr buyers who might bite later? Share the address or neighborhood and your target price to get started.",
   'sell-wispr':
-    "Smart move 🔒 Selling via Wispr means your home is shared advisor-to-advisor — never posted publicly, no strangers wandering through open houses. Want me to put together a quiet, anonymous valuation first?",
+    "Smart move 🔒 A Wispr means we have a signed agreement in place — your home is shared advisor-to-advisor with a real, committed listing. Never posted publicly, no strangers wandering through open houses. Want a quiet, anonymous valuation first?",
   'show-rumr':
-    "These are my favorite ones 😉 Rumrs are pre-market homes — quiet whispers about listings before they officially go public. Want me to filter by city or price range?",
+    "These are my favorite ones 😉 Rumrs are just possibilities — no contract signed yet, nothing official, they may or may not ever become a real listing. Want me to filter by city or price range?",
   'explore-neighborhoods':
     "Happy to be your guide 🗺️ Which area are you curious about — schools, walkability, or investment growth? I can break it down for you.",
   'surprise-me':
-    "Ooh, I like this energy ✨ Here's a hidden gem: a quiet 3-bed craftsman two blocks from the coast, tucked away as a Rumr before it goes public. Want the details?",
+    "Ooh, I like this energy ✨ Here's a hidden gem: a quiet 3-bed craftsman two blocks from the coast — right now it's just a Rumr, but the owner's warming up to the idea. Want me to keep you posted?",
 }
 
 const KEYWORD_REPLIES: { keywords: string[]; reply: string }[] = [
   {
     keywords: ['what is wispr', "what's wispr", 'wispr mean'],
     reply:
-      "Wispr listings are off-market homes shared quietly advisor-to-advisor — they never hit Zillow or public portals. Your agent gets early, private access. 🤫",
+      "A Wispr means there's already a signed agreement in place — a real, committed deal shared quietly advisor-to-advisor, never posted publicly. 🤝",
   },
   {
     keywords: ['what is rumr', "what's rumr", 'rumr mean'],
     reply:
-      "Rumrs are pre-market properties — homes that are about to be listed but aren't public yet. Think of it as hearing the rumor before everyone else does. 👀",
+      "A Rumr is just a possibility — a rumor with no contract signed yet. It might turn into a real Wispr later, or it might not. Think of it as hearing about a move before anyone's decided anything. 👀",
   },
   {
     keywords: ['budget', '$', 'price', 'afford'],
@@ -101,7 +104,7 @@ const KEYWORD_REPLIES: { keywords: string[]; reply: string }[] = [
   {
     keywords: ['buy', 'buyer', 'buying', 'purchase'],
     reply:
-      "Exciting! 🔑 Let's narrow it down — is this your primary home, a vacation spot, or an investment property?",
+      "Exciting! 🔑 Quick question first — are you actively searching right now (that makes you a Wispr buyer), or just curious about what's out there (a Rumr buyer)? Either way, I'll tailor what I show you.",
   },
   {
     keywords: ['agent', 'realtor', 'broker'],
@@ -203,7 +206,7 @@ export const properties: Property[] = [
     sqft: 2100,
     price: '$1.28M',
     images: gallery(1),
-    ctaLabel: 'Request details',
+    ctaLabel: 'Track this Rumr',
   },
   {
     id: 'p3',
@@ -242,7 +245,7 @@ export const moreProperties: Property[] = [
     sqft: 1900,
     price: '$1.1M',
     images: gallery(4),
-    ctaLabel: 'Request details',
+    ctaLabel: 'Track this Rumr',
   },
   {
     id: 'p6',
@@ -278,7 +281,7 @@ export const moreProperties: Property[] = [
     sqft: 2050,
     price: '$1.05M',
     images: gallery(7),
-    ctaLabel: 'Request details',
+    ctaLabel: 'Track this Rumr',
   },
 ]
 
