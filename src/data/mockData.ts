@@ -1,5 +1,5 @@
 export const LARA_AVATAR_URL =
-  'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=facearea&facepad=2.5&w=200&h=200&q=80'
+  'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=facearea&facepad=2.5&w=200&h=200&q=80'
 
 export function getGreeting(): string {
   const hour = new Date().getHours()

@@ -13,7 +13,7 @@ export default function Hero({ children }: { children: ReactNode }) {
         background: 'linear-gradient(135deg, #fdf1e2 0%, #f7e9f2 45%, #ecf1fb 100%)',
       }}
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:gap-12 lg:py-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-10 lg:py-8">
         <div className="flex w-full flex-col items-center text-center lg:items-start lg:text-left">
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -37,7 +37,7 @@ export default function Hero({ children }: { children: ReactNode }) {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
-            className="mt-4 w-full"
+            className="mt-4 w-full max-w-lg"
           >
             {children}
           </motion.div>
@@ -47,12 +47,12 @@ export default function Hero({ children }: { children: ReactNode }) {
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
-          className="relative hidden aspect-square w-full max-w-md justify-self-center self-center lg:block lg:justify-self-end"
+          className="relative hidden aspect-square w-full max-w-2xl justify-self-center self-center lg:block lg:justify-self-end"
         >
-          <div className="absolute right-0 top-0 h-[78%] w-[78%] overflow-hidden rounded-[28px] shadow-xl ring-4 ring-white">
+          <div className="absolute right-0 top-0 h-[80%] w-[80%] overflow-hidden rounded-[28px] shadow-xl ring-4 ring-white">
             <img src={photoBack.images[0]} alt={photoBack.title} className="h-full w-full object-cover" />
           </div>
-          <div className="absolute bottom-0 left-0 h-[58%] w-[58%] overflow-hidden rounded-[24px] shadow-xl ring-4 ring-white">
+          <div className="absolute bottom-0 left-0 h-[62%] w-[62%] overflow-hidden rounded-[24px] shadow-xl ring-4 ring-white">
             <img src={photoFront.images[1]} alt={photoFront.title} className="h-full w-full object-cover" />
           </div>
 
